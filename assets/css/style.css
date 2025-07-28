@@ -1,0 +1,396 @@
+/*
+  STYLE.CSS (V3 - Final)
+  Portfolio for V. Hariharan
+*/
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* --- Root Variables & Global Styles --- */
+:root {
+    --primary-color-start: #020c1b;
+    --primary-color-end: #0a192f;
+    --accent-color: #64ffda;
+    --text-light: #ccd6f6;
+    --text-dark: #8892b0;
+    --card-bg: #112240;
+    --border-color: #233554;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--primary-color-start), var(--primary-color-end));
+    background-attachment: fixed;
+    color: var(--text-dark);
+    line-height: 1.8;
+    font-size: 18px; /* INCREASED BASE FONT SIZE */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+h1, h2, h3, h4 {
+    color: var(--text-light);
+    font-weight: 700;
+}
+
+/* INCREASED FONT SIZES */
+h1 { font-size: clamp(3rem, 6vw, 5rem); }
+h2 { font-size: clamp(2.5rem, 5vw, 3.5rem); margin-bottom: 2.5rem; }
+h3 { font-size: 1.8rem; margin-bottom: 1rem;}
+h4 { font-size: 1.4rem; }
+p { font-size: 1.1rem; margin-bottom: 1.25rem; }
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    filter: brightness(1.2);
+}
+
+strong {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+/* --- Header & Navigation --- */
+.header {
+    background-color: rgba(10, 25, 47, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
+}
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* REPLACE WITH THESE THREE RULES */
+.header-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none; /* Removes underline from title */
+}
+
+.header-logo img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--accent-color);
+}
+
+/* THIS IS THE CORRECTED CODE */
+.header-title {
+    color: var(--text-light);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-left: 15px; /* Adds space next to the logo */
+}
+/* The extra brace is now gone */
+/* MODIFIED CSS rule in style.css */
+/* REPLACE WITH THIS NEW, CORRECTED BLOCK */
+.nav-links ul {
+    display: flex;
+    flex-direction: row;  /* THIS IS THE KEY: Forces horizontal layout */
+    align-items: center;  /* Vertically aligns items in the middle */
+    list-style: none;     /* Removes bullet points */
+    margin: 0;            /* Resets any browser default margin */
+    padding: 0;           /* Resets any browser default padding */
+}
+
+.nav-links li {
+    /* This applies space ONLY to the left of each item */
+    margin: 0 0 0 35px;
+}
+
+.nav-links a {
+    display: block; /* Ensures padding is applied correctly */
+    color: var(--text-light);
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 5px 0; /* Adds some vertical space for the underline */
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.nav-links a.active,
+.nav-links a:hover {
+    color: var(--accent-color);
+    border-bottom-color: var(--accent-color);
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid var(--accent-color);
+    margin: 0.5rem;
+}
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--primary-color-start);
+}
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+}
+
+/* --- Sections & Hero --- */
+.section {
+    padding: 6rem 0;
+}
+/* REPLACEMENT CSS for style.css */
+.hero {
+    display: flex;
+    flex-direction: column; /* Stacks items vertically */
+    align-items: center;   /* Centers items horizontally */
+    justify-content: center; /* Centers items vertically */
+    text-align: center;      /* Centers the text inside */
+    min-height: 85vh;
+}
+.hero-text .subtitle {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: var(--text-light);
+    margin: 1rem 0;
+}
+.hero-text .description {
+    font-size: 1.2rem;
+    max-width: 650px;
+    margin-bottom: 2.5rem;
+}
+.hero-image img {
+    max-width: 320px;
+    border-radius: 50%;
+    border: 5px solid var(--accent-color);
+    box-shadow: 0 0 40px rgba(100, 255, 218, 0.2);
+}
+
+/* --- Skills Section --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2.5rem;
+}
+.skill-category h3 {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+.skill-category ul { list-style: none; }
+.skill-category li {
+    font-size: 1.1rem;
+    margin-bottom: 0.75rem;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2364ffda" class="bi bi-arrow-right-short" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/></svg>') no-repeat left 8px;
+    padding-left: 25px;
+}
+
+/* --- Projects Page Layout --- */
+.project-showcase {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+.project-card {
+    background-color: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+}
+.project-card h3 {
+    color: var(--accent-color);
+}
+.project-card .tools {
+    font-weight: 600;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+}
+.project-card img {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 2rem;
+}
+/* REPLACE THE OLD .project-links RULE WITH THIS BLOCK */
+
+.project-links {
+    margin-top: 2.5rem;
+    display: flex; /* Aligns buttons in a row */
+    align-items: center; /* Vertically centers the buttons */
+    gap: 1rem; /* Adds space between the buttons */
+    flex-wrap: wrap; /* Allows buttons to wrap on smaller screens */
+}
+
+/* This targets the new 'Know More' button */
+.btn-secondary {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+    padding: 14px 32px; /* Ensures same size as primary button */
+    font-size: 1.1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer; /* Changes mouse to a pointer on hover */
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(100, 255, 218, 0.1); /* Subtle hover effect */
+}
+/* ADD THESE NEW RULES to the end of the Projects Page Layout section */
+
+.project-card p strong {
+    color: var(--text-light);
+}
+
+.project-card ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+.project-card li {
+    margin-bottom: 0.75rem;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2364ffda" class="bi bi-arrow-right-short" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/></svg>') no-repeat left 6px;
+}
+
+.project-card h4 {
+    color: var(--accent-color);
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.project-details-hidden {
+    display: none; /* This hides the details by default */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease-in-out;
+}
+
+
+
+/* --- About & Certificates Page --- */
+.about-content {
+    background-color: var(--card-bg);
+    padding: 3rem;
+    border-radius: 8px;
+}
+.certificates-showcase {
+    margin-top: 5rem;
+}
+.certificate-card {
+    text-align: center;
+    background-color: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 8px;
+    margin-bottom: 3rem;
+}
+.certificate-card img {
+    max-width: 60%; /* Makes image large, adjust as needed */
+    height: auto;
+    border-radius: 8px;
+    margin: 0 auto 2.5rem auto;
+    display: block;
+    border: 1px solid var(--border-color);
+}
+.certificate-card h4 {
+    color: var(--accent-color);
+    font-size: 1.6rem;
+}
+.certificate-card p {
+    max-width: 70ch;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.15rem;
+}
+
+/* --- Contact Page --- */
+.contact-section { text-align: center; }
+.contact-links-wrapper { margin-top: 3rem; }
+.contact-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: var(--text-light);
+    margin: 1.5rem auto;
+    max-width: 500px;
+}
+.contact-links svg {
+    height: 30px;
+    margin-right: 15px;
+    fill: var(--accent-color);
+}
+
+/* --- Footer --- */
+.footer {
+    text-align: center;
+    padding: 3rem 0;
+    border-top: 1px solid var(--border-color);
+    margin-top: 4rem;
+}
+.footer-social-links a { margin: 0 15px; display: inline-block; }
+.footer-social-links svg {
+    height: 28px;
+    fill: var(--text-dark);
+    transition: all 0.3s ease;
+}
+.footer-social-links a:hover svg {
+    fill: var(--accent-color);
+    transform: translateY(-3px);
+}
+.footer p { margin-top: 1.5rem; font-size: 1rem; }
+
+/* --- Responsive Design --- */
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .hero-image {
+        grid-row: 1;
+        margin: 0 auto 3rem auto;
+    }
+    .certificate-card img { max-width: 80%; }
+}
+
+
+/* ADD THE .header-title RULE to this media query at the bottom of the file */
+@media (max-width: 768px) {
+    body { font-size: 16px; }
+    .nav-links { display: none; }
+    .header-title { display: none; } /* <-- ADD THIS NEW LINE */
+    .section { padding: 4rem 0; }
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    .project-card, .about-content, .certificate-card { padding: 1.5rem; }
+    .certificate-card img { max-width: 100%; }
+}
